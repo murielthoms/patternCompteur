@@ -1,31 +1,33 @@
 (function() {
-	app = {
-		default: 3600,
+	"use strict";
+	var app = {
+		defaultSeconds: 3600,
 		totalSeconds: null,
 		interval: null,
 
 		init: function() {
-			app.totalSeconds = app.default;
-			app.listeners();
+			this.totalSeconds = this.defaultSeconds;
+			this.listeners();
 		},
 		listeners: function(){
-			$('#play').on('click', app.start);
-			$('#stop').on('click', app.stop);
-			$('#reset').on('click',app.reset);
+			$('#play').on('click', this.start.bind(this));
+			$('#stop').on('click', this.stop.bind(this));
+			$('#reset').on('click',this.reset.bind(this));
 
 		},
 		start: function(){
-			clearInterval(app.interval);
-			app.interval = setInterval(app.decrement, 1000);
+			this.stop();
+			this.interval = setInterval(this.decrement.bind(this), 1000);
+			
 		},
 
 		stop: function(){
-			clearInterval(app.interval);
+			clearInterval(this.interval);
 		},	
 
 		reset: function(){
-			app.totalSeconds = app.default;
-			app.updateView();
+			this.totalSeconds = this.defaultSeconds;
+			this.updateView();
 			
 		},
 
@@ -38,21 +40,21 @@
 		},
 
 		decrement: function(){
-			app.totalSeconds --;
-			app.updateView();
+			this.totalSeconds --;
+			this.updateView();
 
-			if(app.totalSeconds < 0){
-				clearInterval(interval);
+			if(this.totalSeconds < 0){
+				this.stop();
 			}
 		},
 
 		updateView: function(){
-			var hours = parseInt(app.totalSeconds / 3600, 10);
-			var minutes = parseInt(app.totalSeconds % 3600 / 60);
-			var seconds = (app.totalSeconds % 3600 % 60);
-			$('#hours').text(hours , app.addZero());
-			$('#minutes').text(minutes, app.addZero());
-			$('#seconds').text(seconds, app.addZero());
+			var hours = parseInt(this.totalSeconds / 3600, 10);
+			var minutes = parseInt(this.totalSeconds % 3600 / 60, 10);
+			var seconds = (this.totalSeconds % 3600 % 60);
+			$('#hours').text(hours);
+			$('#minutes').text(this.addZero(minutes));
+			$('#seconds').text(this.addZero(seconds));
 		},
 	};
 	app.init();
