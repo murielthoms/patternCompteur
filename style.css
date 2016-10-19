@@ -1,3 +1,8 @@
+body {
+	background-color: #333333; 
+}
+
+
 .countdown {
 	width: 250px;
 	height: 50px;
@@ -5,8 +10,11 @@
 	font-size: 30px;
 	color: orange;
 }
-
 span {
 	margin: 20px;
 	
+}
+
+.progress {
+	width: 675px;
 }

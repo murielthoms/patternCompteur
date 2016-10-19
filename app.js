@@ -4,6 +4,7 @@
 		defaultSeconds: 3600,
 		totalSeconds: null,
 		interval: null,
+		valInput: null,
 
 		init: function() {
 			this.totalSeconds = this.defaultSeconds;
@@ -13,6 +14,7 @@
 			$('#play').on('click', this.start.bind(this));
 			$('#stop').on('click', this.stop.bind(this));
 			$('#reset').on('click',this.reset.bind(this));
+			$('#btnInput').on('click',this.btnInput.bind(this));
 
 		},
 		start: function(){
@@ -55,6 +57,15 @@
 			$('#hours').text(hours);
 			$('#minutes').text(this.addZero(minutes));
 			$('#seconds').text(this.addZero(seconds));
+		},
+
+		btnInput: function(){
+
+			this.defaultSeconds = this.valInput;
+			$('#inputHours').val();
+
+			
+			
 		},
 	};
 	app.init();
