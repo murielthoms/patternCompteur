@@ -12,7 +12,7 @@ body {
 }
 
 #btn {
-
+	top:20px;
 	margin-bottom: 50px;
 	
 }
@@ -24,14 +24,14 @@ body {
 	left:50px;
 	font-size: 20px;
 	text-align: center;
-	margin-left: 100px;
-
+	margin-left: 385px;
+	
 }
 
 .ui.orange.progress {
 	
 	margin: 0 auto;
-	width: 700px;
+	width: 630px;
 }
 .bordure {
 	width: 100%;
