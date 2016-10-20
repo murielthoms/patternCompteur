@@ -1,20 +1,45 @@
 body {
 	background-color: #333333; 
+	position: relative;
 }
 
 
-.countdown {
-	width: 250px;
-	height: 50px;
-	border: solid black 1px;
-	font-size: 30px;
+#btncountdown {
+	
+	font-size: 50px;
 	color: orange;
+	margin: 100px; 
 }
-span {
-	margin: 20px;
+
+#btn {
+
+	margin-bottom: 50px;
 	
 }
 
-.progress {
-	width: 675px;
+#btnInput {
+
+	position: absolute;
+	top:50px;
+	left:50px;
+	font-size: 20px;
+	text-align: center;
+	margin-left: 100px;
+
+}
+
+.ui.orange.progress {
+	
+	margin: 0 auto;
+	width: 700px;
+}
+.bordure {
+	width: 100%;
+}
+	
+
+#barProgress {
+	padding: 50px;
+	color: orange;
+	margin: 0;
 }

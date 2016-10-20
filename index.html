@@ -8,36 +8,35 @@
 </head>
 <body>
 
-	<div class="countdown">
+	<div class=" ui centered aligned grid" id="btncountdown">
 		<span id="hours"></span>:
 		<span id="minutes"></span>:
 		<span id="seconds"></span>
 
 	</div>
 
-	<div id="btnInput">
+	<div id="btnInput" class="ui centered aligned grid">
 		<input type="text" id="inputHours" class="large ui orange basic button" placeholder="Heures...">
-		<input type="tex" id="inputMinutes" class="large ui orange basic button" placeholder="Minutes...">
+		<input type="text" id="inputMinutes" class="large ui orange basic button" placeholder="Minutes...">
 		<input type="text" id="inputSecondes" class="large ui orange basic button" placeholder="Secondes...">
 
 	</div>
-
-	<button id="reinitialize" class=" large ui orange basic button">Reinitialize</button>
-	<button id="reset" class=" large ui orange basic button">Reset</button>
-	<button id="stop" class="large ui orange basic button">Stop</button>
-	<button id="play" class="large ui orange basic button">Play</button>
-
-
-
-	<div class="ui orange active progress">
-		<div class="bar">
-			<div class="progress"></div>
-		</div>
-		<div class="label"></div>
+	<div id="btn" class="ui centered aligned grid">
+		<button id="reinitialize" class=" large ui orange basic button">Reinitialize</button>
+		<button id="reset" class=" large ui orange basic button">Reset</button>
+		<button id="stop" class="large ui orange basic button">Stop</button>
+		<button id="play" class="large ui orange basic button">Play</button>
 	</div>
 
-	<script src="node_modules/jquery/dist/jquery.js"></script>
-	<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
-	<script type="text/javascript" src="app.js"></script>
-</body>
-</html>
+	<div class="ui orange active progress">
+		<div class="bar" id="bordure">
+		<div class="progress" id="chargement">100%</div>
+	</div>
+
+
+
+		<script src="node_modules/jquery/dist/jquery.js"></script>
+		<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+		<script type="text/javascript" src="app.js"></script>
+	</body>
+	</html>

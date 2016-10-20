@@ -4,7 +4,8 @@
 		defaultSeconds: 3600,
 		totalSeconds: null,
 		interval: null,
-		valInput: null,
+		inputTotalSeconds: null,
+		
 
 		init: function() {
 			this.totalSeconds = this.defaultSeconds;
@@ -14,12 +15,13 @@
 			$('#play').on('click', this.start.bind(this));
 			$('#stop').on('click', this.stop.bind(this));
 			$('#reset').on('click',this.reset.bind(this));
-			$('#btnInput').on('click',this.btnInput.bind(this));
+			$('#reinitialize').on('click',this.reinitialize.bind(this));
 
 		},
 		start: function(){
 			this.stop();
 			this.interval = setInterval(this.decrement.bind(this), 1000);
+
 			
 		},
 
@@ -44,9 +46,10 @@
 		decrement: function(){
 			this.totalSeconds --;
 			this.updateView();
-
+			this.progress();
 			if(this.totalSeconds < 0){
 				this.stop();
+
 			}
 		},
 
@@ -59,15 +62,67 @@
 			$('#seconds').text(this.addZero(seconds));
 		},
 
-		btnInput: function(){
+		reinitialize: function(){
 
-			this.defaultSeconds = this.valInput;
-			$('#inputHours').val();
-
-			
-			
+			this.stop();
+			this.totalSeconds = (h * 60) + (m % 60) + (s );
+			console.log(this.totalSeconds);
+		
+			var h = parseInt($('#inputHours').val(),10) || 0;
+			var m = parseInt($('#inputMinutes').val(),10) || 0;
+			var s = parseInt($('#inputSecondes').val(),10) || this.defaultSeconds;
+			console.log(h);
+			this.start();
 		},
+		
+
+		progress:function(){
+
+			var width = parseInt(this.totalSeconds * 100/this.defaultSeconds, 10);
+			$("#bordure").css("width", width + "%");
+			$("#chargement").text(width + "%");
+			$("#chargement").css(width + "%");
+			console.log(width);
+		}, 
 	};
 	app.init();
 
 })();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
