@@ -4,7 +4,7 @@
 		defaultSeconds: 3600,
 		totalSeconds: null,
 		interval: null,
-		inputTotalSeconds: null,
+		
 		
 
 		init: function() {
@@ -65,13 +65,12 @@
 		reinitialize: function(){
 
 			this.stop();
-			this.totalSeconds = (h * 60) + (m % 60) + (s );
-			console.log(this.totalSeconds);
-		
+			this.defaultSeconds = this.totalSeconds;
 			var h = parseInt($('#inputHours').val(),10) || 0;
 			var m = parseInt($('#inputMinutes').val(),10) || 0;
-			var s = parseInt($('#inputSecondes').val(),10) || this.defaultSeconds;
-			console.log(h);
+			var s = parseInt($('#inputSecondes').val(),10) || 0;
+			this.totalSeconds = h * 3600 + m * 60 + s;
+			console.log(this.totalSeconds);
 			this.start();
 		},
 		
@@ -82,7 +81,12 @@
 			$("#bordure").css("width", width + "%");
 			$("#chargement").text(width + "%");
 			$("#chargement").css(width + "%");
+			if (this.totalSeconds === 0){
+				this.stop();
+				$('#btnInput').text('').append('<video autobuffer controls autoplay><source id="mp4" src="https://youtu.be/MnqYwcuIjPM?t=5" type="video/mp4"</video>');
+			}
 			console.log(width);
+
 		}, 
 	};
 	app.init();

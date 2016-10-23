@@ -31,7 +31,7 @@ body {
 .ui.orange.progress {
 	
 	margin: 0 auto;
-	width: 630px;
+	width: auto;
 }
 .bordure {
 	width: 100%;
