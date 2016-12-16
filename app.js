@@ -70,8 +70,10 @@
 			var m = parseInt($('#inputMinutes').val(),10) || 0;
 			var s = parseInt($('#inputSecondes').val(),10) || 0;
 			this.totalSeconds = h * 3600 + m * 60 + s;
-			console.log(this.totalSeconds);
+			this.updateView();
 			this.start();
+			this.progress()
+
 		},
 		
 
@@ -83,9 +85,9 @@
 			$("#chargement").css(width + "%");
 			if (this.totalSeconds === 0){
 				this.stop();
-				$('#btnInput').text('').append('<video autobuffer controls autoplay><source id="mp4" src="https://youtu.be/MnqYwcuIjPM?t=5" type="video/mp4"</video>');
+				
 			}
-			console.log(width);
+			
 
 		}, 
 	};
